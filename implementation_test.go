@@ -9,7 +9,7 @@ import (
 func SuccessfullyTestPostfixToInfix1(t *testing.T) {
 	res, err := PostfixToInfix("2 3 *")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "234 * (2 + 3) / 2", res)
+		assert.Equal(t, "2 * 3", res)
 	}
 }
 

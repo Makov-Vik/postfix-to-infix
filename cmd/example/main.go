@@ -3,11 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	lab2 "github.com/Makov-Vik/postfix-to-infix.git"
 	"io"
 	"os"
 	"strings"
-
-	lab2 "github.com/Makov-Vik/postfix-to-infix.git"
 )
 
 var (
