@@ -3,14 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
-	lab2 "github.com/Makov-Vik/postfix-to-infix.git"
 	"io"
 	"os"
 	"strings"
+
+	lab2 "github.com/Makov-Vik/postfix-to-infix.git"
 )
 
 var (
-	inputExpression = flag.String("e", "17 10 + 3 * 9 /", "Expression to compute")
+	inputExpression = flag.String("e", "3 10 + 7 * 12 5 / - 6 7 ^ * 142 2 / 35 - 5 ^ + 87 + 15 * 123 4 / +", "Expression to compute")
 	fileInput       = flag.String("f", "", "File with expression to compute")
 	fileOutput      = flag.String("o", "", "File to expression output")
 )
@@ -33,23 +34,23 @@ func main() {
 	}
 
 	if len(*fileOutput) > 0 {
-    file, err := os.OpenFile(*fileOutput, os.O_CREATE|os.O_WRONLY, 0644)
-    if err != nil {
-      fmt.Fprintf(os.Stderr, "Error: Such file does not exist.")
-      return
-    }
-    Output = file
-  } else {
-    Output = os.Stdout
-  }
+		file, err := os.OpenFile(*fileOutput, os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: Such file does not exist.")
+			return
+		}
+		Output = file
+	} else {
+		Output = os.Stdout
+	}
 
-  handler := &lab2.ComputeHandler{
-    Input:  Input,
-    Output: Output,
-  }
-  err := handler.Compute()
-  if err != nil {
-    fmt.Fprintf(os.Stderr, err.Error())
-    return
-  }
+	handler := &lab2.ComputeHandler{
+		Input:  Input,
+		Output: Output,
+	}
+	err := handler.Compute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, err.Error())
+		return
+	}
 }
