@@ -7,37 +7,37 @@ import (
 )
 
 func SuccessfullyTestPostfixToInfix1(t *testing.T) {
-	res, err := PostfixToInfix("234 2 * 3 + 2 /")
+	res, err := PostfixToInfix("2 3 *")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "((234*2)+3)/2", res)
+		assert.Equal(t, "234 * (2 + 3) / 2", res)
 	}
 }
 
 func SuccessfullyTestPostfixToInfix2(t *testing.T) {
-	res, err := PostfixToInfix("15 2 2.5 * / 32 + 2 /")
+	res, err := PostfixToInfix("15 2 7 * / 32 + 2 /")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "((15/(2*2.5))+32)/2", res)
+		assert.Equal(t, "(15 / 2 * 7 + 32) / 2", res)
 	}
 }
 
 func SuccessfullyTestPostfixToInfix3(t *testing.T) {
-	res, err := PostfixToInfix("32 1 + 15 3 / 2 * 1 / 22 * -")
+	res, err := PostfixToInfix("32 1 15 - 3 / 2 * 1 / 22 * +")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "(32+1)-((((15/3)*2)/1)*22)", res)
+		assert.Equal(t, "32 + (1 - 15) / 3 * 2 / 1 * 22", res)
 	}
 }
 
 func SuccessfullyTestPostfixToInfix4(t *testing.T) {
 	res, err := PostfixToInfix("0.75 225 * 1 - 2 / 32 - 38 2 * +")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "((((0.75*225)-1)/2)-32)+(38*2)", res)
+		assert.Equal(t, "((0.75 * 225 - 1) / 2 - 32) + 38 * 2", res)
 	}
 }
 
 func SuccessfullyTestPostfixToInfix5(t *testing.T) {
-	res, err := PostfixToInfix("1283 2 * 777 111 / * 228 114 / 113 1 + 2 / / +")
+	res, err := PostfixToInfix("3 10 + 7 * 12 5 / - 6 7 ^ * 142 2 / 35 - 5 ^ + 87 + 15 * 123 4 / +")
 	if assert.Nil(t, err) {
-		assert.Equal(t, "((1283*2)*(777/111))+((228/114)/((113+1)/2))", res)
+		assert.Equal(t, "(((3 + 10) * 7 - 12 / 5) * 6 ^ 7 + (142 / 2 - 35) ^ 5 + 87) * 15 + 123 / 4", res)
 	}
 }
 
