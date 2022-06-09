@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	inputExpression = flag.String("e", "3 10 + 7 * 12 5 / - 6 7 ^ * 142 2 / 35 - 5 ^ + 87 + 15 * 123 4 / +", "Expression to compute")
+	inputExpression = flag.String("e", "", "Expression to compute")
 	fileInput       = flag.String("f", "", "File with expression to compute")
 	fileOutput      = flag.String("o", "", "File to expression output")
 )
