@@ -119,6 +119,6 @@ func Test8(t *testing.T) {
 
 	err := handler.Compute()
 	if assert.Nil(t, err) {
-		assert.Equal(t, "", output.String())
+		assert.Equal(t, "0.75", output.String())
 	}
 }
