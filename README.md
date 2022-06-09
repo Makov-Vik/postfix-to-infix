@@ -9,6 +9,6 @@
 
 Приклад успішної збірки: #[successfuly](https://github.com/Makov-Vik/postfix-to-infix/actions/runs/2470387198)
 
-Приклад неуспішної збірки: #[unsuccessfuly]((https://github.com/Makov-Vik/postfix-to-infix/actions/runs/2470379142))
+Приклад неуспішної збірки: #[unsuccessfuly](https://github.com/Makov-Vik/postfix-to-infix/actions/runs/2470379142)
 
 Пулл реквест: #
