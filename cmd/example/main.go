@@ -23,6 +23,7 @@ func main() {
 
 	if len(*fileInput) > 0 {
 		file, err := os.Open(*fileInput)
+		defer file.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error: Such file does not exist.")
 			return
@@ -34,6 +35,7 @@ func main() {
 
 	if len(*fileOutput) > 0 {
 		file, err := os.OpenFile(*fileOutput, os.O_CREATE|os.O_WRONLY, 0644)
+		defer file.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error: Such file does not exist.")
 			return
